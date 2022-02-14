@@ -79,7 +79,7 @@ class Login_window:
         elif self.txtuser.get()=="admin" and self.txtpass.get()=="root":
             messagebox.showinfo("WELCOME","WELCOME USER")
         else:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_LOCAL_HOST_NAME(LOCALHOST)",username="YOUR_MYSQL_DATABASE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             my_cursor.execute("select * from register where email=%s and password=%s",(self.txtuser.get(),self.txtpass.get()))
             row=my_cursor.fetchone()
@@ -105,7 +105,7 @@ class Login_window:
         elif self.txt_new_password.get()=="":
             messagebox.showerror("ERROR","PLEASE ENTER THE PASSWORD!!",parent=self.root2)
         else:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_LOCAL_HOST_NAME(LOCALHOST)",username="YOUR_MYSQL_DATABASE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             query=("select * from register where email=%s and security_q=%s and security_a=%s")
             value=(self.txtuser.get(),self.combo_security_q.get(),self.txt_security_a.get())
@@ -128,7 +128,7 @@ class Login_window:
         if self.txtuser.get()=="":
             messagebox.showerror("ERROR","PLEASE ENDER THE EMAIL ADDRESS TO RESET PASSWORD!!")
         else:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_LOCAL_HOST_NAME(LOCALHOST)",username="YOUR_MYSQL_DATABASE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             query=("select * from register where email=%s")
             value=(self.txtuser.get(),)
@@ -298,7 +298,7 @@ class Register:
         elif self.var_check_btn.get()==0:
             messagebox.showerror("ERROR","PLEASE AGREE THE TERMS AND CONDITION!!!")
         else:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_LOCAL_HOST_NAME(LOCALHOST)",username="YOUR_MYSQL_DATABASE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             query=("select * from register where email=%s")
             value=(self.var_email.get(),)
