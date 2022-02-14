@@ -220,7 +220,7 @@ class Cust_Win:
             messagebox.showerror("Error","ALL FIELDS ARE REQUIRED!!!",parent=self.root)
         else:
             try:
-                conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+                conn = mysql.connector.connect(host="YOUR_MYSQL_HOST_NAME(Localhost)",username="YOUR_MYSQL_DATABSE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="_YOUR_MYSQL_DATABASE_NAME")
                 my_cursor = conn.cursor()
                 my_cursor.execute("insert into customer values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.var_ref.get(),self.var_cust_name.get(),self.var_cust_mother.get(),self.var_cust_gender.get(),self.var_cust_post.get(),self.var_cust_mobile.get(),self.var_cust_email.get(),self.var_cust_nationality.get(),self.var_cust_id_proff.get(),self.var_cust_id_number.get(),self.var_cust_address.get()))
                 conn.commit()
@@ -231,7 +231,7 @@ class Cust_Win:
                 messagebox.showwarning("Warning",f"Some thing went wrong:{str(es)}",parent=self.root)
 
     def fetch_data(self):
-        conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+        conn = mysql.connector.connect(host="YOUR_MYSQL_HOST_NAME(Localhost)",username="YOUR_MYSQL_DATABSE_USERNAME",password="YOUR_MYSQL_DATABASE_PASSWORD",database="_YOUR_MYSQL_DATABASE_NAME")
         my_cursor = conn.cursor()
         my_cursor.execute("Select * from customer")
         rows = my_cursor.fetchall()
@@ -263,7 +263,7 @@ class Cust_Win:
         if self.var_cust_mobile.get()=="":
             messagebox.showerror("Error","Please enter mobile number",parent=self.root)
         else:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_MYSQL_HOST_NAME(Localhost)",username="YOUR_MYSQL_DATABSE_USERNAME",password="YOUR_MYSQL_DATABSE_USERNAME",database="_YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             my_cursor.execute("update customer set NAME=%s,MOTHER=%s,GENDER=%s,POST=%s,MOBILE=%s,EMAIL=%s,NATIONALITY=%s,ID_PROFF=%s,ID_NO=%s,ADDRESS=%s where REF_NO=%s",(self.var_cust_name.get(),self.var_cust_mother.get(),self.var_cust_gender.get(),self.var_cust_post.get(),self.var_cust_mobile.get(),self.var_cust_email.get(),self.var_cust_nationality.get(),self.var_cust_id_proff.get(),self.var_cust_id_number.get(),self.var_cust_address.get(),self.var_ref.get()))
             conn.commit()
@@ -274,7 +274,7 @@ class Cust_Win:
     def dat_Delete(self):
         dat_Delete = messagebox.askyesno("Hotel Management System,","Do you want to delete this customer",parent=self.root)
         if dat_Delete>0:
-            conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+            conn = mysql.connector.connect(host="YOUR_MYSQL_HOST_NAME(Localhost)",username="YOUR_MYSQL_DATABSE_USERNAME",password="YOUR_MYSQL_DATABSE_USERNAME",database="_YOUR_MYSQL_DATABASE_NAME")
             my_cursor = conn.cursor()
             query = "delete from customer where REF_NO=%s"
             value = (self.var_ref.get(),)
@@ -303,7 +303,7 @@ class Cust_Win:
         self.var_ref.set(str(x))
 
     def search_data(self):
-        conn = mysql.connector.connect(host="Localhost",username="root",password="ASDFzxcv069",database="hotel_management")
+        conn = mysql.connector.connect(host="YOUR_MYSQL_HOST_NAME(Localhost)",username="YOUR_MYSQL_DATABSE_USERNAME",password="YOUR_MYSQL_DATABSE_USERNAME",database="_YOUR_MYSQL_DATABASE_NAME")
         my_cursor = conn.cursor()
         my_cursor.execute("select * from customer where "+str(self.search_var.get())+" LIKE '%"+str(self.txt_search.get())+"%'")
         rows_featch = my_cursor.fetchall()
